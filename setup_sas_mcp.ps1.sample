@@ -1,10 +1,10 @@
 Write-Host "Starting SAS MCP Server Setup..." -ForegroundColor Cyan
 
 # 1. Download and Extract the repository (since git is not installed)
-$repoDir = "C:\Users\nivesh.bagavatham\OneDrive - OTSI\Desktop\Anti G\sas-mcp-server"
+$repoDir = Join-Path $PSScriptRoot "sas-mcp-server"
 $zipUrl = "https://github.com/sassoftware/sas-mcp-server/archive/refs/heads/main.zip"
-$zipPath = "C:\Users\nivesh.bagavatham\OneDrive - OTSI\Desktop\Anti G\sas-mcp-server.zip"
-$extractPath = "C:\Users\nivesh.bagavatham\OneDrive - OTSI\Desktop\Anti G"
+$zipPath = Join-Path $PSScriptRoot "sas-mcp-server.zip"
+$extractPath = $PSScriptRoot
 
 if (!(Test-Path $repoDir)) {
     Write-Host "Downloading repository as a ZIP file (bypassing git)..." -ForegroundColor Yellow

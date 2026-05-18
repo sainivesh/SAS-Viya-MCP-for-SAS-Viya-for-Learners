@@ -62,13 +62,13 @@ To let Google Antigravity or your local Claude Desktop connect to this server, c
 ```json
 {
   "mcpServers": {
-    "sas-viya": {
-      "command": "python",
-      "args": ["-m", "src.sas_mcp_server.main"],
-      "cwd": "C:/Users/nivesh.bagavatham/OneDrive - OTSI/Desktop/Anti G/sas-mcp-server",
-      "env": {
-        "VIYA_ENDPOINT": "https://vfl-028.engage.sas.com"
-      }
+    "sas-viya-mcp": {
+      "command": "uv",
+      "args": [
+        "run",
+        "app-stdio"
+      ],
+      "cwd": "C:/path/to/your/sas-mcp-server"
     }
   }
 }
