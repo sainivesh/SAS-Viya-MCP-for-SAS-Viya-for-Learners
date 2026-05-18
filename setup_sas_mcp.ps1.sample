@@ -1,0 +1,49 @@
+Write-Host "Starting SAS MCP Server Setup..." -ForegroundColor Cyan
+
+# 1. Download and Extract the repository (since git is not installed)
+$repoDir = "C:\Users\nivesh.bagavatham\OneDrive - OTSI\Desktop\Anti G\sas-mcp-server"
+$zipUrl = "https://github.com/sassoftware/sas-mcp-server/archive/refs/heads/main.zip"
+$zipPath = "C:\Users\nivesh.bagavatham\OneDrive - OTSI\Desktop\Anti G\sas-mcp-server.zip"
+$extractPath = "C:\Users\nivesh.bagavatham\OneDrive - OTSI\Desktop\Anti G"
+
+if (!(Test-Path $repoDir)) {
+    Write-Host "Downloading repository as a ZIP file (bypassing git)..." -ForegroundColor Yellow
+    Invoke-WebRequest -Uri $zipUrl -OutFile $zipPath
+    Write-Host "Extracting ZIP file..." -ForegroundColor Yellow
+    Expand-Archive -Path $zipPath -DestinationPath $extractPath -Force
+    # Rename the extracted folder from 'sas-mcp-server-main' to 'sas-mcp-server'
+    Rename-Item -Path "$extractPath\sas-mcp-server-main" -NewName "sas-mcp-server"
+    Remove-Item $zipPath # Cleanup the zip file
+}
+else {
+    Write-Host "Repository already downloaded." -ForegroundColor Green
+}
+
+Set-Location $repoDir
+
+# 2. Sync dependencies
+Write-Host "Syncing dependencies with uv..." -ForegroundColor Yellow
+try {
+    uv sync
+}
+catch {
+    Write-Host "Warning: uv might not be loaded in this session yet. If it fails, close the terminal, reopen it, and run the script again." -ForegroundColor Red
+}
+
+# 3. Setup .env file
+$envPath = Join-Path $repoDir ".env"
+if (!(Test-Path $envPath)) {
+    Write-Host "Creating .env file..." -ForegroundColor Yellow
+    @"
+VIYA_ENDPOINT=https://vfl-028.engage.sas.com
+VIYA_USERNAME=your_sas_username
+VIYA_PASSWORD=your_sas_password
+"@ | Out-File -FilePath $envPath -Encoding UTF8
+    Write-Host "SUCCESS: Setup complete!" -ForegroundColor Green
+    Write-Host "IMPORTANT: Please open the newly created .env file in the sas-mcp-server folder and replace your_sas_username and your_sas_password with your actual credentials." -ForegroundColor Red
+}
+else {
+    Write-Host "SUCCESS: Setup complete! .env file already exists." -ForegroundColor Green
+}
+
+Read-Host -Prompt "Press Enter to exit"

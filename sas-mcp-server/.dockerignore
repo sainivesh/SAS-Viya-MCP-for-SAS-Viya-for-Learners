@@ -1,0 +1,9 @@
+.venv
+.ruff_cache
+.vscode
+dist/
+examples/
+tests/
+.env*
+*.md
+!README.md

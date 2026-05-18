@@ -1,0 +1,21 @@
+# Root .gitignore
+test.json
+setup_sas_mcp.ps1
+
+# Ignore credentials and local configurations
+.env
+.env.local
+.token
+*.log
+
+# Python virtual environments and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS specific files
+.DS_Store
+Thumbs.db
