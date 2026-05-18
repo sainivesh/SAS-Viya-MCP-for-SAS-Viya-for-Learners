@@ -1,6 +1,6 @@
 # SAS Viya MCP Server for Google Antigravity
 
-This repository houses the production-ready **SAS Viya Model Context Protocol (MCP) Server**, engineered specifically to bridge the **Google Antigravity AI Agent** with the **SAS Viya for Learners (VFL)** environment.
+This repository houses **SAS Viya Model Context Protocol (MCP) Server**, engineered specifically to bridge the **Google Antigravity AI Agent** with the **SAS Viya for Learners (VFL)** environment.
 
 By running this MCP server locally, Google Antigravity gains the power to dynamically execute SAS code, run high-performance Cloud Analytic Services (CAS) actions, register/score models, and query Visual Analytics reports directly from the chat interface.
 
