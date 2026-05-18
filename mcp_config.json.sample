@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "sas-viya-learners-cloud": {
+      "serverUrl": "https://vfl-028.engage.sas.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer your_active_sas_jwt_token_here"
+      }
+    }
+  }
+}
