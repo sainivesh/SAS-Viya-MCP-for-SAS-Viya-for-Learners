@@ -64,7 +64,7 @@ Below is the step-by-step log of the issues encountered and resolved throughout 
 
 ### 🔒 Phase 6: Pushing to GitHub (Safe & Secured)
 * **Problem:** Local files contained plain-text student usernames, active passwords (`Nivesh@2002`), and live JWT tokens, presenting a severe security risk if pushed to GitHub.
-* **Cause:** Git was tracking `setup_sas_mcp.ps1` with the raw credentials, and there was no root `.gitignore` to block `test.json`.
+* **Cause:** Git was tracking `setup_sas_mcp.ps1` with the raw credentials, and there was no root `.gitignore` to block `mcp_config.json` (formerly `test.json`).
 * **Resolution:**
   1. Created a robust, root-level `.gitignore` file.
   2. Created a generic, shareable setup script template: `setup_sas_mcp.ps1.sample`.
@@ -90,7 +90,7 @@ Before going public, we ran a comprehensive, case-insensitive string audit over 
 
 ### 📁 Exclusions Verified
 The following files are guaranteed to remain strictly on your local machine and will **never** be pushed to GitHub:
-* 🗄️ `test.json` (Local OAuth Token Block)
+* 🗄️ `mcp_config.json` (formerly `test.json`) (Local OAuth Token Block)
 * 🗄️ `setup_sas_mcp.ps1` (Active local setup script containing your password)
 * 🗄️ `sas-mcp-server/.env` (Local active credentials and tokens)
 * 🗄️ `sas-mcp-server/.venv/` (Local Python packages)
