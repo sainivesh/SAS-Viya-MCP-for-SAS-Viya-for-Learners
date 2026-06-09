@@ -74,19 +74,7 @@ Below is the step-by-step log of the issues encountered and resolved throughout 
 
 ---
 
-## 🛡️ 4. Final Pre-Release Security Audit Report
 
-Before going public, we ran a comprehensive, case-insensitive string audit over **every single file tracked in the repository** to search for sensitive indicators.
-
-### 📊 Results
-
-| Scan Target | Signature Scanned | Findings | Status |
-| :--- | :--- | :---: | :---: |
-| **SAS Password** | `Nivesh` | **0** | ✅ **Passed (100% Clean)** |
-| **Personal Surname** | `bagavatham` | **0** | ✅ **Passed (100% Clean)** |
-| **VFL Username** | `217y1a05` | **0** | ✅ **Passed (100% Clean)** |
-| **Active JWT Tokens** | `eyJ` | **0** | ✅ **Passed (100% Clean)** |
-| **OneDrive Org Folder** | `OTSI` | **0** | ✅ **Passed (100% Clean)** |
 
 ### 📁 Exclusions Verified
 The following files are guaranteed to remain strictly on your local machine and will **never** be pushed to GitHub:
