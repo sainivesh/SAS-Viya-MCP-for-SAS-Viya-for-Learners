@@ -74,15 +74,6 @@ Below is the step-by-step log of the issues encountered and resolved throughout 
 
 ---
 
-
-
-### 📁 Exclusions Verified
-The following files are guaranteed to remain strictly on your local machine and will **never** be pushed to GitHub:
-* 🗄️ `mcp_config.json` (formerly `test.json`) (Local OAuth Token Block)
-* 🗄️ `setup_sas_mcp.ps1` (Active local setup script containing your password)
-* 🗄️ `sas-mcp-server/.env` (Local active credentials and tokens)
-* 🗄️ `sas-mcp-server/.venv/` (Local Python packages)
-
 ---
 
 ## 🚀 5. How to Deploy to a New Machine
